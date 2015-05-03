@@ -86,6 +86,12 @@ function paint()
 	context.fillStyle = "#FAA";
 	context.fill();
 
+	//Gun front piece
+	context.beginPath();
+	context.arc( hw, h, (h/15), 0, Math.PI*2, false );
+	context.fillStyle = "#F66";
+	context.fill();
+
 	context.translate( -(hcw-hw), -(hch-hh) );
 
 	window.requestAnimationFrame( paint );
