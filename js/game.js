@@ -50,10 +50,18 @@ function paint()
 	if ( keys[ 37 ] )
 	{
 		cannon_ang -= turnrate;
+		if ( cannon_ang < -Math.PI+0.34 )
+		{
+			cannon_ang = -Math.PI+0.34;
+		}
 	}
 	if ( keys[ 39 ] )
 	{
 		cannon_ang += turnrate;
+		if ( cannon_ang > -0.34 )
+		{
+			cannon_ang = -0.34;
+		}
 	}
 
 	//Gun cannon
