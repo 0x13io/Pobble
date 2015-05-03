@@ -25,7 +25,7 @@ function paint()
 	context.fillStyle = "#000";
 	context.fill();
 
-	//Background
+	//Stage Background
 	context.beginPath();
 	context.rect( hcw-hw, hch-hh, w, h );
 	context.fillStyle = "#FFF";
