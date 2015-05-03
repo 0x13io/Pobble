@@ -9,10 +9,18 @@ function paint()
 	var hch = ch/2;
 
 	var aspect_x = 2;
-	var aspect_y = 3;
+	var aspect_y = 2;
 
 	var w = ( ch / aspect_y ) * aspect_x;
  	var h = ( cw / aspect_x ) * aspect_y;
+	if ( w < cw )
+	{
+		h = ch;
+	}
+	if ( h < ch )
+	{
+		w = cw;
+	}
 	var hw = w/2;
 	var hh = h/2;
 
@@ -25,11 +33,15 @@ function paint()
 	context.fillStyle = "#000";
 	context.fill();
 
+	context.translate( hcw-hw, hch-hh );
+
 	//Stage Background
 	context.beginPath();
-	context.rect( hcw-hw, hch-hh, w, h );
+	context.rect( 0, 0, w, h );
 	context.fillStyle = "#FFF";
 	context.fill();
+	
+	context.translate( -(hcw-hw), -(hch-hh) );
 
 	window.requestAnimationFrame( paint );
 }
