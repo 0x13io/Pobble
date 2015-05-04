@@ -3,31 +3,21 @@ var context;
 
 var keys = {};
 
+var cw;
+var ch;
+var hcw;
+var hch;
+var aspect_x = 2;
+var aspect_y = 3;
+var w;
+var h;
+var hw;
+var hh;
+
 var cannon_ang = -(Math.PI/2);
 
 function paint()
 {
-	var cw = canvas.width; //Make these variables easy to get to.
-	var ch = canvas.height;
-	var hcw = cw/2;
-	var hch = ch/2;
-
-	var aspect_x = 2;
-	var aspect_y = 3;
-
-	var w = ( ch / aspect_y ) * aspect_x;
- 	var h = ( cw / aspect_x ) * aspect_y;
-	if ( w < cw )
-	{
-		h = ch;
-	}
-	if ( h < ch )
-	{
-		w = cw;
-	}
-	var hw = w/2;
-	var hh = h/2;
-
 	//Clear before drawing.
 	context.clearRect( 0, 0, cw, ch );
 
@@ -106,6 +96,24 @@ window.onresize = function()
 {
 	canvas.width = canvas.parentElement.clientWidth;
 	canvas.height = canvas.parentElement.clientHeight;
+
+	cw = canvas.width; //Make these variables easy to get to.
+	ch = canvas.height;
+	hcw = cw/2;
+	hch = ch/2;
+
+	w = ( ch / aspect_y ) * aspect_x;
+	h = ( cw / aspect_x ) * aspect_y;
+	if ( w < cw )
+	{
+		h = ch;
+	}
+	if ( h < ch )
+	{
+		w = cw;
+	}
+	hw = w/2;
+	hh = h/2;
 }
 
 window.onkeydown = function( e )
