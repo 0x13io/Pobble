@@ -45,6 +45,15 @@ function paint()
 	context.fillStyle = "#FFF";
 	context.fill();
 
+	paint_gun();
+
+	context.translate( -(hcw-hw), -(hch-hh) );
+
+	window.requestAnimationFrame( paint );
+}
+
+function paint_gun()
+{
 	//Update cannon
 	var turnrate = 0.02;
 	if ( keys[ 37 ] )
@@ -91,10 +100,6 @@ function paint()
 	context.arc( hw, h, (h/15), 0, Math.PI*2, false );
 	context.fillStyle = "#F66";
 	context.fill();
-
-	context.translate( -(hcw-hw), -(hch-hh) );
-
-	window.requestAnimationFrame( paint );
 }
 
 window.onresize = function()
