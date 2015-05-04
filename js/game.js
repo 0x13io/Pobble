@@ -118,7 +118,7 @@ function paint_gun()
 	context.rect( (h/15), -(h/30)/2, (h/10), (h/30) );
 	context.rotate( -cannon_ang );
 	context.translate( -hw, -h );
-	context.fillStyle = "#F00";
+	context.fillStyle = "#F44";
 	context.fill();
 
 	//Gun rails
