@@ -3,16 +3,16 @@ var context;
 
 var keys = {};
 
-var cw;
-var ch;
-var hcw;
-var hch;
-var aspect_x = 2;
-var aspect_y = 3;
-var w;
-var h;
-var hw;
-var hh;
+var cw; //Canvas width
+var ch; //Canvas height
+var hcw; //Half canvas width
+var hch; //Half canvas height
+var aspect_x = 2; //Aspect ratio (width)
+var aspect_y = 3; //Aspect ratio (height)
+var w; //Stage width
+var h; //Stage height
+var hw; //Half stage width
+var hh; //Half stage height
 
 var cannon_ang = -(Math.PI/2);
 
