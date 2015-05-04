@@ -16,6 +16,14 @@ var hh; //Half stage height
 
 var cannon_ang = -(Math.PI/2);
 
+var projectile = {}
+projectile.moving = false;
+projectile.x = 0;
+projectile.y = 0;
+projectile.vx = 0;
+projectile.vy = 0;
+projectile.size = 1;
+
 function paint()
 {
 	//Clear before drawing.
@@ -35,11 +43,51 @@ function paint()
 	context.fillStyle = "#FFF";
 	context.fill();
 
+	paint_projectile();
+
 	paint_gun();
 
 	context.translate( -(hcw-hw), -(hch-hh) );
 
 	window.requestAnimationFrame( paint );
+}
+
+function paint_projectile()
+{
+	if ( !projectile.moving )
+	{
+		if ( keys[ 32 ] )
+		{
+			projectile.vx = Math.cos( cannon_ang );
+			projectile.vy = Math.sin( cannon_ang );
+			projectile.x = hw+(projectile.vx*(h/10));
+			projectile.y = h+(projectile.vy*(h/10));
+			projectile.moving = true;
+		}
+		return;
+	}
+
+	var radius = (h/80);
+	projectile.x += projectile.vx*(h/100);
+	projectile.y += projectile.vy*(h/100);
+	if ( projectile.x < radius )
+	{
+		projectile.x = radius;
+		projectile.vx *= -1;
+	}
+	if ( projectile.x > w-radius )
+	{
+		projectile.x = w-radius;
+		projectile.vx *= -1;
+	}
+	if ( projectile.y < -radius )
+	{
+		projectile.moving = false;
+	}
+	context.beginPath();
+	context.arc( projectile.x, projectile.y, radius, 0, Math.PI*2, false );
+	context.fillStyle = "#F66";
+	context.fill();
 }
 
 function paint_gun()
